@@ -1,0 +1,3 @@
+#!/bin/bash
+APP=`pwd | sed 's/^.*piano-//'`
+kubetest delete pods --selector app=$APP

@@ -1,0 +1,4 @@
+#!/bin/bash
+APP=`pwd | sed 's/^.*piano-//'`
+FIRST_POD=`source getpods | sed '2s/\(^'"$APP"'[a-z0-9-]*\)\(.*$\)/\1/' | sed 1d | sed 2d | sed 2d | sed 2d`
+kubetest exec -it $FIRST_POD bash
