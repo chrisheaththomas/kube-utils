@@ -1,4 +1,5 @@
 APP=`pwd | sed 's/^.*piano-//'`
 FIRST_POD=`source getpods | sed '2s/\(^'"$APP"'[a-z0-9-]*\)\(.*$\)/\1/' | sed 1d | sed 2d | sed 2d | sed 2d`
-kubetest port-forward $FIRST_POD 9999:8080 
+while true;do
+kubetest port-forward $FIRST_POD 9999:8080; done
 
