@@ -1,4 +1,5 @@
-#!/bin/bash
 APP=`pwd | sed 's/^.*piano-//'`
 FIRST_POD=`source getpods-prod | sed '2s/\(^'"$APP"'[a-z0-9-]*\)\(.*$\)/\1/' | sed 1d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d`
-kubeprod exec -it $FIRST_POD bash
+while true;do
+kubeprod port-forward $FIRST_POD 9999:8080; done
+
