@@ -1,4 +1,8 @@
 #!/bin/bash
 APP=`pwd | sed 's/^.*piano-//'`
-FIRST_POD=`source getpods-prod | sed '2s/\(^'"$APP"'[a-z0-9-]*\)\(.*$\)/\1/' | sed 1d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d | sed 2d`
+FIRST_POD=`source getpods-prod | sed '2s/\(^'"$APP"'[a-z0-9-]*\)\(.*$\)/\1/' | sed 1d `
+for i in {1..15}
+do
+   FIRST_POD=`echo -n $FIRST_POD | sed 2d`
+done
 kubeprod exec -it $FIRST_POD bash
